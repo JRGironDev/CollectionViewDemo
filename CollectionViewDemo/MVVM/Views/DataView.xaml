@@ -3,5 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionViewDemo.MVVM.Views.DataView"
              Title="DataView">
-    <CollectionView ItemsSource="{Binding Products}"/>
+    <CollectionView ItemsSource="{Binding Products}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid
+                    Margin="15, 10, 15, 0"
+                    ColumnDefinitions=".1*, .2*, .7*"
+                    RowDefinitions="*, *">
+                    <Frame
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BorderColor="White">
+                        <Frame.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="#F8F9FA"
+                                        Offset="0"/>
+                                <GradientStop Color="#DEE2E6"
+                                        Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                    </Frame>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.ColumnSpan="2"
+                        HeightRequest="100"
+                        Source="{Binding Image}"/>
+                    <Label
+                        Grid.Column="2"
+                        FontSize="Large"
+                        Text="{Binding Name}" 
+                        VerticalOptions="Center"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
