@@ -1,17 +1,35 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using CollectionViewDemo.MVVM.Models;
+using PropertyChanged;
 
 namespace CollectionViewDemo.MVVM.ViewModels;
 
+[AddINotifyPropertyChangedInterface]
 public class DataViewModel
 {
     public ObservableCollection<Product> Products { get; set; }
 
+    public bool IsRefreshing { get; set; }
+
+    public ICommand RefreshCommand =>
+        new Command(async () =>
+        {
+            IsRefreshing = true;
+            await Task.Delay(2000);
+            RefreshItems();
+            IsRefreshing = false;
+        });
     public DataViewModel()
+    {
+        RefreshItems();
+    }
+
+    private void RefreshItems()
     {
         Products = new ObservableCollection<Product>
         {
-new Product
+            new Product
                      {
                          Name = "Yogurt",
                          Price = 60.0m,

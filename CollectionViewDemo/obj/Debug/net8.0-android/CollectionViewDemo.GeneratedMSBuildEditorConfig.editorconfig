@@ -1,4 +1,5 @@
 is_global = true
+build_property.PropertyChangedAnalyzerConfiguration = 
 build_property.EnableAotAnalyzer = 
 build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
@@ -39,6 +40,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CollectionViewDemo.MVVM.Views.DataView.xaml
 build_metadata.AdditionalFiles.TargetPath = MVVM/Views/DataView.xaml
 build_metadata.AdditionalFiles.RelativePath = MVVM/Views/DataView.xaml
+
+[/Users/josequinonez/C\#/MAUI/CollectionViewDemo/CollectionViewDemo/Resources/Styles/CollectionViewDictionary.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CollectionViewDemo.Resources.Styles.CollectionViewDictionary.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/CollectionViewDictionary.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/CollectionViewDictionary.xaml
 
 [/Users/josequinonez/C\#/MAUI/CollectionViewDemo/CollectionViewDemo/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
