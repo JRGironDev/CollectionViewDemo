@@ -8,7 +8,7 @@ namespace CollectionViewDemo.MVVM.ViewModels;
 [AddINotifyPropertyChangedInterface]
 public class DataViewModel
 {
-    public ObservableCollection<Product> Products { get; set; }
+    public ObservableCollection<Product> Products { get; set; } = new ObservableCollection<Product>();
 
     public bool IsRefreshing { get; set; }
 
@@ -20,14 +20,29 @@ public class DataViewModel
             RefreshItems();
             IsRefreshing = false;
         });
+
+    public ICommand ThresholdReachedCommand =>
+        new Command(async () =>
+        {
+            RefreshItems(Products.Count);
+        });
+
+    public ICommand DeleteCommand =>
+        new Command((p) =>
+        {
+            Products.Remove((Product)p);
+        });
+
     public DataViewModel()
     {
         RefreshItems();
     }
 
-    private void RefreshItems()
+    private void RefreshItems(int lastIndex = 0)
     {
-        Products = new ObservableCollection<Product>
+        int numberOfItemsPerPage = 10;
+
+        ObservableCollection<Product>? items = new ObservableCollection<Product>
         {
             new Product
                      {
@@ -440,5 +455,12 @@ public class DataViewModel
                          Stock = 9
                      },
         };
+
+        IEnumerable<Product>? pageItems = items.Skip(lastIndex).Take(numberOfItemsPerPage);
+
+        foreach (Product item in pageItems)
+        {
+            Products.Add(item);
+        }
     }
 }
