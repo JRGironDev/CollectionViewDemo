@@ -3,37 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionViewDemo.MVVM.Views.LayoutsPage"
              Title="LayoutsPage">
-    <ScrollView>
-        <CollectionView ItemsSource="{Binding Products}">
-            <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
-                    <Label
-                        Text="Products"
-                        FontSize="Large"
-                        FontAttributes="Bold"
-                        HorizontalTextAlignment="Center"/>
-                </Frame>
-            </CollectionView.Header>
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical"/>
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame
-                        Margin="15"
-                        WidthRequest="200"
-                        HeightRequest="250">
-                        <VerticalStackLayout>
-                            <Image
-                                Source="{Binding Image}"/>
+    <CollectionView ItemsSource="{Binding Products}">
+        <CollectionView.Header>
+            <Frame BackgroundColor="{StaticResource Primary}">
+                <Label
+                    Text="Products"
+                    FontSize="Large"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"/>
+            </Frame>
+        </CollectionView.Header>
+        <CollectionView.Footer>
+            <HorizontalStackLayout>
+                <Label FontSize="Title">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Total Products: "/>
+                            <Span Text="{Binding Products.Count}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </HorizontalStackLayout>
+        </CollectionView.Footer>
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical"/>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame
+                    Margin="15"
+                    WidthRequest="200"
+                    HeightRequest="250">
+                    <VerticalStackLayout>
+                        <Image
+                            Source="{Binding Image}"/>
 
-                            <Label
-                                HorizontalTextAlignment="Center"
-                                Text="{Binding Name}"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </ScrollView>
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Name}"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
