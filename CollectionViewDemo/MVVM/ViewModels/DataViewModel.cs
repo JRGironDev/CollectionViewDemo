@@ -14,6 +14,8 @@ public class DataViewModel
 
     public Product? SelectedProduct { get; set; }
 
+    public List<Object> SelectedProducts { get; set; } = new List<object>();
+
     public ICommand RefreshCommand =>
         new Command(async () =>
         {
@@ -33,6 +35,12 @@ public class DataViewModel
         new Command(() =>
         {
             SelectedProduct = SelectedProduct;
+        });
+
+    public ICommand ProductsChangedCommand =>
+        new Command(() =>
+        {
+            List<Object>? productsList = SelectedProducts;
         });
 
     public ICommand DeleteCommand =>
