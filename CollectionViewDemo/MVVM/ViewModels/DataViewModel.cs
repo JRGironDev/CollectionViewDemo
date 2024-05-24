@@ -12,6 +12,8 @@ public class DataViewModel
 
     public bool IsRefreshing { get; set; }
 
+    public Product? SelectedProduct { get; set; }
+
     public ICommand RefreshCommand =>
         new Command(async () =>
         {
@@ -27,6 +29,12 @@ public class DataViewModel
             RefreshItems(Products.Count);
         });
 
+    public ICommand ProductChangedCommand =>
+        new Command(() =>
+        {
+            SelectedProduct = SelectedProduct;
+        });
+
     public ICommand DeleteCommand =>
         new Command((p) =>
         {
@@ -40,7 +48,7 @@ public class DataViewModel
 
     private void RefreshItems(int lastIndex = 0)
     {
-        int numberOfItemsPerPage = 10;
+        int numberOfItemsPerPage = 20;
 
         ObservableCollection<Product>? items = new ObservableCollection<Product>
         {
