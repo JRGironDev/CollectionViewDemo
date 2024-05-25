@@ -7,6 +7,24 @@
         VerticalScrollBarVisibility="Always"
         VerticalOptions="Center"
         HorizontalOptions="Center">
+        <CollectionView.EmptyView>
+            <Grid>
+                <VerticalStackLayout 
+                    VerticalOptions="Center"
+                    Spacing="20">
+                    <Image
+                        Source="notfound.png"
+                        HeightRequest="150"
+                        VerticalOptions="Center"/>
+                    <Label
+                        Text="No results found!"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </CollectionView.EmptyView>
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
             </x:Array>
