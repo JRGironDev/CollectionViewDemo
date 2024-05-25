@@ -41,6 +41,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = CollectionViewDemo.MVVM.Vi
 build_metadata.AdditionalFiles.TargetPath = MVVM/Views/DataView.xaml
 build_metadata.AdditionalFiles.RelativePath = MVVM/Views/DataView.xaml
 
+[/Users/josequinonez/C\#/MAUI/CollectionViewDemo/CollectionViewDemo/MVVM/Views/EmptyView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CollectionViewDemo.MVVM.Views.EmptyView.xaml
+build_metadata.AdditionalFiles.TargetPath = MVVM/Views/EmptyView.xaml
+build_metadata.AdditionalFiles.RelativePath = MVVM/Views/EmptyView.xaml
+
 [/Users/josequinonez/C\#/MAUI/CollectionViewDemo/CollectionViewDemo/MVVM/Views/LayoutsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CollectionViewDemo.MVVM.Views.LayoutsPage.xaml

@@ -14,6 +14,6 @@ public partial class LayoutsPage : ContentPage
 
 	private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-		var element = e.CurrentSelection.FirstOrDefault();
+		object? element = e.CurrentSelection.FirstOrDefault();
 	}
 }

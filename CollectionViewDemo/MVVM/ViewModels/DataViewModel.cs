@@ -19,10 +19,10 @@ public class DataViewModel
     public ICommand RefreshCommand =>
         new Command(async () =>
         {
-            IsRefreshing = true;
-            await Task.Delay(2000);
+            //IsRefreshing = true;
+            //await Task.Delay(2000);
             RefreshItems();
-            IsRefreshing = false;
+            //IsRefreshing = false;
         });
 
     public ICommand ThresholdReachedCommand =>
@@ -34,7 +34,7 @@ public class DataViewModel
     public ICommand ProductChangedCommand =>
         new Command(() =>
         {
-            SelectedProduct = SelectedProduct;
+            Product? selectedProduct = SelectedProduct;
         });
 
     public ICommand ProductsChangedCommand =>
@@ -49,16 +49,27 @@ public class DataViewModel
             Products.Remove((Product)p);
         });
 
+    public ICommand ClearCommand =>
+        new Command(() =>
+        {
+            SelectedProduct = null;
+        });
+
     public DataViewModel()
     {
         RefreshItems();
+        SelectedProducts.Add(Products.Skip(2).FirstOrDefault());
+        SelectedProducts.Add(Products.Skip(4).FirstOrDefault());
+
+        //SelectedProducts.Add(Products.Skip(2).FirstOrDefault());
+
     }
 
     private void RefreshItems(int lastIndex = 0)
     {
-        int numberOfItemsPerPage = 20;
+        //int numberOfItemsPerPage = 20;
 
-        ObservableCollection<Product>? items = new ObservableCollection<Product>
+        Products = new ObservableCollection<Product>
         {
             new Product
                      {
@@ -472,11 +483,11 @@ public class DataViewModel
                      },
         };
 
-        IEnumerable<Product>? pageItems = items.Skip(lastIndex).Take(numberOfItemsPerPage);
+        //IEnumerable<Product>? pageItems = items.Skip(lastIndex).Take(numberOfItemsPerPage);
 
-        foreach (Product item in pageItems)
-        {
-            Products.Add(item);
-        }
+        //foreach (Product item in pageItems)
+        //{
+        //    Products.Add(item);
+        //}
     }
 }

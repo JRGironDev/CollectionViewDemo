@@ -3,57 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionViewDemo.MVVM.Views.LayoutsPage"
              Title="LayoutsPage">
-    <!--<CollectionView
-        ItemsSource="{Binding Products}"
-        SelectionMode="Single"
-        SelectedItem="{Binding SelectedProduct}"
-        SelectionChangedCommand="{Binding ProductChangedCommand}">-->
-    <CollectionView
-        ItemsSource="{Binding Products}"
-        SelectionMode="Multiple"
-        SelectedItems="{Binding SelectedProducts}"
-        SelectionChangedCommand="{Binding ProductsChangedCommand}">
-        <CollectionView.Header>
-            <Frame BackgroundColor="{StaticResource Primary}">
-                <Label
-                    Text="Products"
-                    FontSize="Large"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    HorizontalTextAlignment="Center"/>
-            </Frame>
-        </CollectionView.Header>
-        <CollectionView.Footer>
-            <HorizontalStackLayout>
-                <Label FontSize="Title">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Total Products: "/>
-                            <Span Text="{Binding Products.Count}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </HorizontalStackLayout>
-        </CollectionView.Footer>
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical"/>
-        </CollectionView.ItemsLayout>
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame
-                    Margin="15"
-                    WidthRequest="200"
-                    HeightRequest="250">
-                    <VerticalStackLayout>
-                        <Image
-                            Source="{Binding Image}"/>
+    <Grid RowDefinitions=".1*, .9*">
+        <Button
+            Text="Clear Selections"
+            Command="{Binding ClearCommand}"/>
 
+        <ScrollView Grid.Row="1">
+            <!--<CollectionView
+                ItemsSource="{Binding Products}"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedProduct}"
+                SelectionChangedCommand="{Binding ProductChangedCommand}">-->
+            <CollectionView
+                ItemsSource="{Binding Products}"
+                SelectionMode="Multiple"
+                SelectedItems="{Binding SelectedProducts}"
+                SelectionChangedCommand="{Binding ProductsChangedCommand}">
+                <CollectionView.Header>
+                    <Frame BackgroundColor="{StaticResource Primary}">
                         <Label
-                            HorizontalTextAlignment="Center"
-                            Text="{Binding Name}"/>
-                    </VerticalStackLayout>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                            Text="Products"
+                            FontSize="Large"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"/>
+                    </Frame>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <HorizontalStackLayout>
+                        <Label FontSize="Title">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Total Products: "/>
+                                    <Span Text="{Binding Products.Count}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </HorizontalStackLayout>
+                </CollectionView.Footer>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="15"
+                            WidthRequest="200"
+                            HeightRequest="250">
+                            <VerticalStackLayout>
+                                <Image
+                                    Source="{Binding Image}"/>
+
+                                <Label
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Name}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>
+
 </ContentPage>
