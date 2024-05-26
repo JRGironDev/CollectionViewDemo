@@ -7,18 +7,34 @@
         IsGrouped="True"
         ItemsSource="{Binding Products}">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
-        </CollectionView.ItemsLayout>   
+            <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10"/>
+        </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BackgroundColor="White" CornerRadius="15">
+                <Frame BackgroundColor="White"
+                       CornerRadius="15">
                     <VerticalStackLayout>
                         <Image Source="{Binding Image}"/>
-                        <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="{Binding Price}" FontSize="Medium"/>
+                        <Label Text="{Binding Name}"
+                               FontSize="Large"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding Price}"
+                               FontSize="Medium"/>
                     </VerticalStackLayout>
                 </Frame>
             </DataTemplate>
-        </CollectionView.ItemTemplate>     
+        </CollectionView.ItemTemplate>
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Label
+                    Text="{Binding Name}"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    BackgroundColor="LightGray" />
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+        
     </CollectionView>
 </ContentPage>
