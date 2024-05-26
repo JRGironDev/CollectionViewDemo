@@ -6,13 +6,14 @@
     <ContentPage.Resources>
         <ContentView x:Key="NoResultsView">
             <Grid>
-                <VerticalStackLayout 
+                <VerticalStackLayout
                     VerticalOptions="Center"
                     Spacing="20">
                     <Image
                         Source="notfound.png"
                         HeightRequest="150"
                         VerticalOptions="Center"/>
+
                     <Label
                         Text="No results found!"
                         FontSize="Large"
@@ -24,13 +25,14 @@
         </ContentView>
         <ContentView x:Key="ConnectivityIssue">
             <Grid>
-                <VerticalStackLayout 
+                <VerticalStackLayout
                     VerticalOptions="Center"
                     Spacing="20">
                     <Image
                         Source="no_internet.png"
                         HeightRequest="150"
                         VerticalOptions="Center"/>
+
                     <Label
                         Text="Check your Internet Conection!"
                         FontSize="Large"
@@ -63,19 +65,21 @@
                 </VerticalStackLayout>
             </Grid>
         </CollectionView.EmptyView>-->
-        <Grid RowDefinitions=".2*,.8*">
-            <HorizontalStackLayout>
-                <Label Text="EmptyView" />
-                <Switch Toggled="Switch_Toggled" />
-            </HorizontalStackLayout>
+    <Grid
+        RowDefinitions=".2*, .8*"
+        Padding="15, 15">
+        <HorizontalStackLayout Spacing="15">
+            <Label Text="EmptyView"/>
+            <Switch Toggled="Switch_Toggled"/>
+        </HorizontalStackLayout>
 
-            <CollectionView
-                Grid.Row="1"
-                x:Name="collectionView">
-                <CollectionView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                    </x:Array>
-                </CollectionView.ItemsSource>
-            </CollectionView>
-        </Grid>
+        <CollectionView
+            Grid.Row="1"
+            x:Name="collectionView">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                </x:Array>
+            </CollectionView.ItemsSource>
+        </CollectionView>
+    </Grid>
 </ContentPage>
