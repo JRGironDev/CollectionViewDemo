@@ -3,7 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionViewDemo.MVVM.Views.EmptyView"
              Title="EmptyView">
-    <CollectionView
+    <ContentPage.Resources>
+        <ContentView x:Key="NoResultsView">
+            <Grid>
+                <VerticalStackLayout 
+                    VerticalOptions="Center"
+                    Spacing="20">
+                    <Image
+                        Source="notfound.png"
+                        HeightRequest="150"
+                        VerticalOptions="Center"/>
+                    <Label
+                        Text="No results found!"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </ContentView>
+        <ContentView x:Key="ConnectivityIssue">
+            <Grid>
+                <VerticalStackLayout 
+                    VerticalOptions="Center"
+                    Spacing="20">
+                    <Image
+                        Source="no_internet.png"
+                        HeightRequest="150"
+                        VerticalOptions="Center"/>
+                    <Label
+                        Text="Check your Internet Conection!"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </ContentView>
+    </ContentPage.Resources>
+    <!--<CollectionView
         VerticalScrollBarVisibility="Always"
         VerticalOptions="Center"
         HorizontalOptions="Center">
@@ -24,11 +62,20 @@
                         VerticalTextAlignment="Center"/>
                 </VerticalStackLayout>
             </Grid>
-        </CollectionView.EmptyView>
-        <CollectionView.ItemsSource>
-            <x:Array Type="{x:Type x:String}">
-            </x:Array>
-        </CollectionView.ItemsSource>
+        </CollectionView.EmptyView>-->
+        <Grid RowDefinitions=".2*,.8*">
+            <HorizontalStackLayout>
+                <Label Text="EmptyView" />
+                <Switch Toggled="Switch_Toggled" />
+            </HorizontalStackLayout>
 
-    </CollectionView>
+            <CollectionView
+                Grid.Row="1"
+                x:Name="collectionView">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                    </x:Array>
+                </CollectionView.ItemsSource>
+            </CollectionView>
+        </Grid>
 </ContentPage>
