@@ -16,6 +16,16 @@ public class ProductsViewModel
                                        into groups
                                        select new ProductsGroup(groups.Key, groups.ToList());
 
+        int id = 0;
+        foreach (ProductsGroup group in grouped)
+        {
+            foreach (Product product in group)
+            {
+                product.Id = id;
+                id++;
+            }
+        }
+
         Products = grouped.ToList();                             
     }
 

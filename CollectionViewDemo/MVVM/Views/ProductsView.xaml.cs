@@ -24,4 +24,12 @@ public partial class ProductsView : ContentPage
 		Debug.WriteLine($"Scrolled to {e.CenterItemIndex}");
 		Debug.Write(message: "------------------------------------------------");
 	}
+
+	private void Button_Clicked(object sender, EventArgs e)
+	{
+		ProductsViewModel? vm = BindingContext as ProductsViewModel;
+
+		var product = vm?.Products.SelectMany(p => p).FirstOrDefault(x => x.Id == 10);
+		collectionView.ScrollTo(product);
+	}
 }
