@@ -13,12 +13,13 @@
             IsGrouped="True"
             ItemsSource="{Binding Products}"
             Scrolled="CollectionView_Scrolled"
-            ItemsUpdatingScrollMode="KeepLastItemInView">
+            ItemsUpdatingScrollMode="   ">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout 
                     Orientation="Vertical"
                     ItemSpacing="10"
-                    SnapPointsType=""/>
+                    SnapPointsType="Mandatory"
+                    SnapPointsAlignment="Start"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
