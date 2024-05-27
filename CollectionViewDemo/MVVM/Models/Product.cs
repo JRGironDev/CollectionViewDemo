@@ -7,7 +7,7 @@ public class Product
 
     public decimal Price { get; set; }
 
-    public required string Image { get; set; }
+    public string Image { get; set; }
 
     public int Stock { get; set; }
 

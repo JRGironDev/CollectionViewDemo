@@ -1,20 +1,21 @@
-﻿using CollectionViewDemo.MVVM.Models;
+﻿using System.Collections.ObjectModel;
+using CollectionViewDemo.MVVM.Models;
 
 namespace CollectionViewDemo.MVVM.ViewModels;
 
 public class ProductsViewModel
 {
-    public List<ProductsGroup> Products { get; set; } = new List<ProductsGroup>();
+    public ObservableCollection<ProductsGroup> Products { get; set; } = new ObservableCollection<ProductsGroup>();
 
     public ProductsViewModel()
     {
         List<Product>? products = LoadItems();
 
         IEnumerable<ProductsGroup>? grouped = from p in products
-                                       orderby p.Name
-                                       group p by p.Name[0].ToString()
+                                              orderby p.Name
+                                              group p by p.Name[0].ToString()
                                        into groups
-                                       select new ProductsGroup(groups.Key, groups.ToList());
+                                              select new ProductsGroup(groups.Key, groups.ToList());
 
         int id = 0;
         foreach (ProductsGroup group in grouped)
@@ -26,7 +27,7 @@ public class ProductsViewModel
             }
         }
 
-        Products = grouped.ToList();                             
+        Products = new ObservableCollection<ProductsGroup>(grouped.ToList());
     }
 
     private List<Product> LoadItems()
